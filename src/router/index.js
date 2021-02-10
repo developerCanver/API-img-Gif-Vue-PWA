@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 
-const routes = [
+const routes = [//todas las rutas
   {
     path: '/',
     name: 'Home',
@@ -14,12 +14,28 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
-]
+  },
+  {
+    path: '/gifs',
+    name: 'Gifs',
+    // route level code-splitting
+    // this generates a separate chunk (about.[gifs].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "gifs" */ '../views/Gifs.vue')
+  },
+  {
+    path: '/stickers',
+    name: 'Stickers',
+    // route level code-splitting
+    // this generates a separate chunk (about.[stickers].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "stickers" */ '../views/Stickers.vue')
+  },
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
 
-export default router
+export default router;
